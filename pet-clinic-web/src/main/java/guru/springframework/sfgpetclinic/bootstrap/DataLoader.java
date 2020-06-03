@@ -1,5 +1,6 @@
 package guru.springframework.sfgpetclinic.bootstrap;
 
+import guru.springframework.sfgpetclinic.model.FakeData;
 import guru.springframework.sfgpetclinic.model.Owner;
 import guru.springframework.sfgpetclinic.model.Vet;
 import guru.springframework.sfgpetclinic.services.OwnerService;
@@ -14,16 +15,25 @@ public class DataLoader implements CommandLineRunner {
 
     private final VetService vetService;
 
+    private final FakeData fakeData;
 
-    public DataLoader(OwnerService ownerService, VetService vetService) {
+
+
+
+    public DataLoader(OwnerService ownerService, VetService vetService, FakeData fakeData) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.fakeData = fakeData;
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
+
+        System.out.println(fakeData.getPassword());
 
         System.out.println("################################### hallo");
+
+        System.out.println("################################### data loader 3");
 
         Owner owner1 = new Owner();
 

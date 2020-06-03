@@ -1,0 +1,21 @@
+#spring.banner.image.location=logo.jpg
+spring:
+  banner:
+    image:
+      location: logo.jpg
+
+guru:
+  username: ymluser-default
+  password: ymlpassword-defualt
+---
+spring:
+  profiles: de
+guru:
+  username: ymluser-de
+  password: ymlpassword-de
+---
+spring:
+  profiles: en
+guru:
+  username: ymluser-en
+  password: ymlpassword-en
