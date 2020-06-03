@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Setter
 @Getter
-public class Pet {
+public class Pet extends BaseEntity{
 
     private PetType petType;
 
