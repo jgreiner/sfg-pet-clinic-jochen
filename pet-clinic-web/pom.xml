@@ -3,7 +3,7 @@
     <parent>
         <artifactId>sfg-pet-clinic-jochen</artifactId>
         <groupId>guru.springframework</groupId>
-        <version>0.0.6-SNAPSHOT</version>
+        <version>0.0.6</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -31,9 +31,10 @@
             </exclusions>
         </dependency>
         <dependency>
-            <artifactId>pet-clinic-data</artifactId>
             <groupId>guru.springframework</groupId>
-            <version>0.0.1-SNAPSHOT</version>
+            <artifactId>pet-clinic-data</artifactId>
+            <version>0.0.6</version>
+
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
