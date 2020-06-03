@@ -14,7 +14,7 @@
     </parent>
     <groupId>guru.springframework</groupId>
     <artifactId>sfg-pet-clinic-jochen</artifactId>
-    <version>0.0.4-SNAPSHOT</version>
+    <version>0.0.4</version>
     <name>sfg-pet-clinic-jochen</name>
     <description>Demo project for Spring Boot</description>
 
@@ -51,7 +51,7 @@
 
     <scm>
         <developerConnection>scm:git:git@github.com:jgreiner/sfg-pet-clinic-jochen.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>sfg-pet-clinic-jochen-0.0.4</tag>
   </scm>
 
 </project>
