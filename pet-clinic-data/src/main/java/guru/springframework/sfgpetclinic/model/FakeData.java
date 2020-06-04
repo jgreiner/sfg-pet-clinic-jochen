@@ -1,11 +1,13 @@
 package guru.springframework.sfgpetclinic.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.beans.factory.InitializingBean;
 
 @Setter
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class FakeData implements InitializingBean {
 
     private String username;

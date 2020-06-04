@@ -54,6 +54,9 @@ public class DataLoader implements CommandLineRunner {
 
         Owner owner1 = new Owner();
 
+        String obuilder = Owner.builder().address("builder").city("builder").firstname("jochen").toString();
+        System.out.println(obuilder);
+
         owner1.setFirstName("Jochen");
         owner1.setLastName("Greiner");
         owner1.setAddress("Mühltasltr 99");
