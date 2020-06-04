@@ -61,7 +61,17 @@ public class DataLoader implements CommandLineRunner {
         vetService.save(vet3);
 
 
+    }
 
+    private void createPetTypes() {
+
+    }
+
+    private void createPets() {
+
+    }
+
+    private void createVisit() {
 
     }
 }
