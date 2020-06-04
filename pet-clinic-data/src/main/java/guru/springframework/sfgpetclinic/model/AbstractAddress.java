@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AbstractAddress {
+public abstract class AbstractAddress {
 
 
     private String address;
