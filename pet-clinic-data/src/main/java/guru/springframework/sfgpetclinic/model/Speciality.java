@@ -6,10 +6,11 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Setter
 @Getter
+@Setter
 @Entity
-@Table(name = "types")
-public class PetType extends BaseEntity {
-    private String name;
+@Table(name = "specialties")
+public class Speciality extends BaseEntity {
+
+    private String description;
 }
