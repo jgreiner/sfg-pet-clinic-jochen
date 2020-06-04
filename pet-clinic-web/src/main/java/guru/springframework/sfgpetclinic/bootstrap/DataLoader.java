@@ -1,10 +1,7 @@
 package guru.springframework.sfgpetclinic.bootstrap;
 
 import guru.springframework.sfgpetclinic.model.*;
-import guru.springframework.sfgpetclinic.services.OwnerService;
-import guru.springframework.sfgpetclinic.services.PetTypeService;
-import guru.springframework.sfgpetclinic.services.SpecialityService;
-import guru.springframework.sfgpetclinic.services.VetService;
+import guru.springframework.sfgpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,15 +14,20 @@ public class DataLoader implements CommandLineRunner {
 
     private final VetService vetService;
     private final PetTypeService petTypeService;
+    private final PetService petService;
 
     private final SpecialityService specialityService;
 
+    private final VisitService visitService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
+
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, PetService petService, SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
+        this.petService = petService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -58,11 +60,28 @@ public class DataLoader implements CommandLineRunner {
         owner1.setCity("Heidelberg");
         owner1.setTelephone("+49123456");
 
+        ownerService.save(owner1);
+
         Pet jochensDog = new Pet();
         jochensDog.setPetType(savedDogType);
         jochensDog.setOwner(owner1);
         jochensDog.setName("WauWau");
         jochensDog.setBirthDate(LocalDate.now());
+
+        petService.save(jochensDog);
+
+
+
+        Visit visitJochensDog = new Visit();
+
+        visitJochensDog.setPet(jochensDog);
+        visitJochensDog.setDate(LocalDate.now());
+        visitJochensDog.setDescription("toll");
+
+        visitService.save(visitJochensDog);
+
+
+        jochensDog.getVisits().add(visitJochensDog);
 
         owner1.getPets().add(jochensDog);
 
