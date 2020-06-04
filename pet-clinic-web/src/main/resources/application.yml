@@ -1,12 +1,14 @@
-#spring.banner.image.location=logo.jpg
+#spring.banner.image.location=logo.jpg:
 spring:
   banner:
     image:
-      location: logo.jpg
+      location: classpath:logo.jpg
 
 guru:
   username: ymluser-default
   password: ymlpassword-defualt
+server:
+  port: 8080
 ---
 spring:
   profiles: de
