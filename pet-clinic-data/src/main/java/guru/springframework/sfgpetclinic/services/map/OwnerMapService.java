@@ -20,6 +20,7 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
     public OwnerMapService(PetTypeService petTypeService, PetService petService) {
         this.petTypeService = petTypeService;
         this.petService = petService;
+        System.out.println("####################### MAP #########################");
     }
 
     @Override

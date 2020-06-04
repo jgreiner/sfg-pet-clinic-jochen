@@ -27,6 +27,7 @@ public class OwnerJpaService implements OwnerService {
         this.ownerRepository = ownerRepository;
         this.petRepository = petRepository;
         this.petTypeRepository = petTypeRepository;
+        System.out.println("####################### JPA #########################");
     }
 
     @Override
