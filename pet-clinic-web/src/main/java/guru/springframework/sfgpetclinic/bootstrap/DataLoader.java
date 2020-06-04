@@ -110,15 +110,5 @@ public class DataLoader implements CommandLineRunner {
 
     }
 
-    private void createPetTypes() {
 
-    }
-
-    private void createPets() {
-
-    }
-
-    private void createVisit() {
-
-    }
 }
