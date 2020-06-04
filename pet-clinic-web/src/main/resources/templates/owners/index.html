@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
 <head>
     <meta charset="UTF-8">
     <title>owners</title>
 </head>
 <body>
 <!--/*@thymesVar id="owner" type="guru.springframework.sfgpetclinic.model.Owner"*/-->
-<h1 th:text="'owners index'">index</h1>
+<h2 th:text="'owners index'">index</h2>
 
-<table border="10">
+<table class="table table-stripped">
     <tr th:each="owner : ${owners}">
         <td th:text="${owner?.firstName}"></td>
         <td th:text="${owner?.lastName}"></td>
