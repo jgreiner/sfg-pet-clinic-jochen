@@ -5,8 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Controller
-public class VetController {
+public class VetController extends AbstractController {
 
     private final VetService vetService;
 
@@ -18,7 +21,12 @@ public class VetController {
     public String listVets(Model model) {
 
         model.addAttribute("vets", vetService.findAll());
+        model.addAttribute("color", getColor());
+        LocalDateTime now = LocalDateTime.now();
+        model.addAttribute("lastUpdate", now.getHour() + "h" + now.getMinute() + ":" + now.getSecond());
 
         return "vets/index";
     }
+
+
 }
