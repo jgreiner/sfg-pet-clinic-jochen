@@ -7,7 +7,7 @@
 <body>
 <h1 th:text="#{welcome}">Welcome </h1>
 <h2 th:text="${person.name}">person</h2>
-
+<h2 th:text="'aus ' + ${person.city}">city</h2>
 <div class="row">
     <div class="col-md-12">
         <img class="img-responsive" src="../static/resources/images/pets.png" th:src="@{/resources/images/pets.png}" alt=""/>
