@@ -47,7 +47,7 @@ class OwnerControllerTest {
     @Test
     void list() throws Exception {
         when(ownerService.findAll()).thenReturn(owners);
-        ResultActions resultActions = TestUtility.checkControllerUrl(mockMvc, "/owners", "owners/index");
+        ResultActions resultActions = TestUtility.checkControllerUrl(mockMvc, "/owners/x", "owners/index");
         resultActions.andExpect(model().attribute("owners", hasSize(2)));
     }
 
