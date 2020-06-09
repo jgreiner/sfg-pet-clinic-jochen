@@ -35,7 +35,7 @@ class OwnerJpaServiceTest {
     @InjectMocks
     OwnerJpaService ownerJpaService;
 
-    private String lastName = "Smith";
+    private final String lastName = "Smith";
 
     private Owner owner;
 
