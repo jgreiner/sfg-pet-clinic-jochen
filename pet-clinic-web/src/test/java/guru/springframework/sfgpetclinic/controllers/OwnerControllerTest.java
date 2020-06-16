@@ -16,10 +16,12 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.*;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -63,6 +65,22 @@ class OwnerControllerTest {
     void findOwner() throws Exception {
         TestUtility.checkControllerUrl(mockMvc, "/owners/find", "404");
         verifyNoMoreInteractions(ownerService);
+    }
+
+
+    @Test
+    void displayOwner() throws Exception {
+
+        Owner owner = Owner.builder().id(1L).firstName("Jochen").build();
+
+        when(ownerService.findById(anyLong())).thenReturn(owner);
+        ResultActions resultActions = TestUtility.checkControllerUrl(mockMvc, "/owners/1", "owners/ownerDetails");
+        resultActions.andExpect(status().isOk());
+
+        resultActions.andExpect(model().attributeExists("owner"));
+        resultActions.andExpect(model().attribute("owner", hasProperty("id", is(1L))));
+        resultActions.andExpect(model().attribute("owner", hasProperty("firstName", is("Jochen"))));
+
     }
 
 
