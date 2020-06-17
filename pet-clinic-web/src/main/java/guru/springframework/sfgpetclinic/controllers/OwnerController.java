@@ -30,8 +30,6 @@ public class OwnerController {
     }
 
 
-
-
     @GetMapping("/{ownerId}")
     public ModelAndView showOwner(@PathVariable Long ownerId) {
         ModelAndView mav = new ModelAndView("owners/ownerDetails");
@@ -41,20 +39,20 @@ public class OwnerController {
 
 
     @RequestMapping("/find")
-    public String findOwners(Model model){
+    public String findOwners(Model model) {
         model.addAttribute("owner", Owner.builder().build());
         return "owners/findOwners";
     }
 
     @GetMapping
-    public String processFindForm(Owner owner, BindingResult result, Model model){
+    public String processFindForm(Owner owner, BindingResult result, Model model) {
         // allow parameterless GET request for /owners to return all records
         if (owner.getLastName() == null) {
             owner.setLastName(""); // empty string signifies broadest possible search
         }
 
         // find owners by last name
-        List<Owner> results = ownerService.findAllByLastNameLike("%"+ owner.getLastName() + "%");
+        List<Owner> results = ownerService.findAllByLastNameLike("%" + owner.getLastName() + "%");
 
         if (results.isEmpty()) {
             // no owners found
